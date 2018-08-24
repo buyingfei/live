@@ -44,7 +44,42 @@ configure arguments: --add-module=/opt/app/nginx-rtmp-module-master --with-debug
 ```
 则安装成功！
 
-#### 参考链接
+
+
+### 工具简介
+* OBS 进行推流[下载地址：](https://obsproject.com/download?spm=a2c4g.11186623.2.3.4b821445EVKONB)
+* VLC media play [下载地址：](https://www.videolan.org/)
+
+### OBS简单使用
+**设置场景，选择来源**
+* 视频捕获设备，一般都是摄像头进行推流
+* 显示器捕获，就是选择显示器进行推流
+* 选择媒体源，一般就是选择本地视频文件，进行推流
+
+
+
+**VLC 进行播放视频流**
+### 播放本地视频，进行点播
+```bash
+VLC - 媒体-打开网络串流 ,写入串流地址
+rtmp://192.168.132.128:1935/localVideo/123.mp4
+```
+### 播放远程视频流
+```bash
+VLC - 媒体-打开网络串流 ,写入串流地址
+rtmp://192.168.132.128:1935/remoteRTMPStream
+```
+### 播放远程视频流
+```bash
+VLC - 媒体-打开网络串流 ,写入串流地址
+rtmp://192.168.132.128:1935/myapp
+```
+
+### 采坑总结
+* 配置如果没问题，播放不成功，可以选择调小视频FPS
+
+### 参考链接
 *  [rtmp 官方文档](https://github.com/arut/nginx-rtmp-module)
 *  [视频弹幕,参考1](https://github.com/jp9000/OBS)
 *  [视频弹幕,参考2](https://github.com/lonelymoon/DanMuer)
+*  [OBS 简单使用](https://help.aliyun.com/document_detail/45212.html)
