@@ -47,7 +47,8 @@ configure arguments: --add-module=/opt/app/nginx-rtmp-module-master --with-debug
 
 
 ### 工具简介
-* OBS 进行推流[下载地址：](https://obsproject.com/download?spm=a2c4g.11186623.2.3.4b821445EVKONB)
+* windows 下OBS 进行推流[下载地址：](https://obsproject.com/download?spm=a2c4g.11186623.2.3.4b821445EVKONB)
+* linux 下 ffmpeg[下载地址：](https://obsproject.com/download?spm=a2c4g.11186623.2.3.4b821445EVKONB)
 * VLC media play [下载地址：](https://www.videolan.org/)
 
 ### OBS简单使用
@@ -56,6 +57,18 @@ configure arguments: --add-module=/opt/app/nginx-rtmp-module-master --with-debug
 * 显示器捕获，就是选择显示器进行推流
 * 选择媒体源，一般就是选择本地视频文件，进行推流
 
+### ffmpeg 进行推流
+通过二进制yum 安装[仅限于cent 6.5，其他版本请自行安装]
+```bash
+sudo rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el6/x86_64/nux-dextop-release-0-2.el6.nux.noarch.rpm
+sudo yum install ffmpeg ffmpeg-devel -y
+```
+
+
+```bash
+ffmpeg -re -i ~/swoole/123.mp4 -vcodec libx264 -vprofile baseline -acodec aac -ar 44100 -strict -2 -ac 1 -f flv -s 1280x720 -q 10 rtmp://192.168.132.128:1935/hls/lxf
+```
 
 
 **VLC 进行播放视频流**
