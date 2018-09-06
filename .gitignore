@@ -7,3 +7,6 @@
 *.sln
 build.sh
 *.swp
+*.m3u8
+*.ts
+*.flv
